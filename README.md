@@ -1,15 +1,15 @@
-# docker-logger [![Go Report Card](https://goreportcard.com/badge/github.com/umputun/docker-logger)](https://goreportcard.com/report/github.com/umputun/docker-logger) [![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/umputun/docker-logger/)
+# docker-logger [![Go Report Card](https://goreportcard.com/badge/github.com/yyewolf/docker-logger)](https://goreportcard.com/report/github.com/yyewolf/docker-logger) [![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/yyewolf/docker-logger/)
 
 
 **docker-logger** is a small application collecting logs from other containers on the host that started without
 the `-t` option and configured with a logging driver that works with docker logs (journald and json-file).
 It can forward both stdout and stderr of containers to local, rotated files and/or to remote syslog.
 
-_note: [dkll](https://github.com/umputun/dkll) inlcudes all functionality of docker-logger, but adds server and cli client_
+_note: [dkll](https://github.com/yyewolf/dkll) inlcudes all functionality of docker-logger, but adds server and cli client_
 
 ## Install
 
-Copy provided [docker-compose.yml](https://github.com/umputun/docker-logger/blob/master/docker-compose.yml), customize if needed and run with `docker-compose up -d`. By default `docker-logger` will collect all logs from containers and put it to `./logs` directory.
+Copy provided [docker-compose.yml](https://github.com/yyewolf/docker-logger/blob/master/docker-compose.yml), customize if needed and run with `docker-compose up -d`. By default `docker-logger` will collect all logs from containers and put it to `./logs` directory.
 
 ## Customization
 
@@ -40,6 +40,6 @@ All changes can be done via container's environment in `docker-compose.yml` or w
 
 ## Build from the source
 
-- clone this repo - `git clone https://github.com/umputun/docker-logger.git`
-- build the logger - `cd docker-logger && docker build -t umputun/docker-logger .`
-- try it - `docker run -it --rm -v $(pwd)/logs:/srv/logs -v /var/run/docker.sock:/var/run/docker.sock umputun/docker-logger /srv/docker-logger --files`
+- clone this repo - `git clone https://github.com/yyewolf/docker-logger.git`
+- build the logger - `cd docker-logger && docker build -t yyewolf/docker-logger .`
+- try it - `docker run -it --rm -v $(pwd)/logs:/srv/logs -v /var/run/docker.sock:/var/run/docker.sock yyewolf/docker-logger /srv/docker-logger --files`
